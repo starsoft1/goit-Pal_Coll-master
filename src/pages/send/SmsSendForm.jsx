@@ -26,7 +26,7 @@ import { sendSmsSchema } from "../validation/Validation";
 const SmsSendForm = () => {
   const [sms, setSMS] = useState();
   const [valueOption, setValueOption] = useState([]);
-  const [sender, setSender] = useState("Lana Line");
+  const [sender, setSender] = useState("Pal&Collect");
   const user = JSON.parse(localStorage.getItem("user"));
 
   const Item = styled(Paper)(({ theme }) => ({
@@ -66,7 +66,7 @@ const SmsSendForm = () => {
               "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
             );
             myHeaders.append("cache-control", "max-age=0");
-            myHeaders.append("origin", "http://185.193.66.128:3000");
+            myHeaders.append("origin", "http://188.225.173.174:3000");
             myHeaders.append("Host", "sms.htd.ps");
             myHeaders.append("Access-Control-Allow-Origin", "*");
             myHeaders.append(

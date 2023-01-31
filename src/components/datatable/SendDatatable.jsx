@@ -4,7 +4,7 @@ import { smsMessageColumns, userColumns } from "../../datatablesource";
 import { useEffect, useState } from "react";
 import {
   collection,
-  onSnapshot,
+  onSnapshot,orderBy
 } from "firebase/firestore";
 import { db } from "../../firebase";
 
@@ -39,6 +39,11 @@ const SendDatatable = () => {
         columns={smsMessageColumns}
         pageSize={100}
         rowsPerPageOptions={[9]}
+        sortingOrder = {['asc', 'desc', null]}
+        initialState={{
+          sorting: {
+            sortModel: [{ field: 'createdAt', sort: 'desc' }],
+          }}}
       />
     </div>
   );

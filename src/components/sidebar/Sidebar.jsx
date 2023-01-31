@@ -44,7 +44,7 @@ const Sidebar = () => {
             </li>
           </Link>
 
-          {user.email === "admin@lanaline.ps" && <Link to="/add" style={{ textDecoration: "none" }}>
+          {user.email === "admin@palcoll.ps" && <Link to="/add" style={{ textDecoration: "none" }}>
             <li>
               <AddBoxIcon className="icon" />
               <span>Add SMS</span>
@@ -52,7 +52,7 @@ const Sidebar = () => {
           </Link>}
 
           <p className="title">Settings</p>
-          {user.email === "admin@lanaline.ps" && <Link to="/users" style={{ textDecoration: "none" }}>
+          {user.email === "admin@palcoll.ps" && <Link to="/users" style={{ textDecoration: "none" }}>
             <li>
               <PeopleIcon className="icon" />
               <span>Users</span>

@@ -67,6 +67,11 @@ const UsersDatatable = () => {
         columns={usersColumns.concat(actionColumn)}
         pageSize={100}
         rowsPerPageOptions={[9]}
+        sortingOrder = {['asc', 'desc', null]}
+        initialState={{
+          sorting: {
+            sortModel: [{ field: 'createdAt', sort: 'desc' }],
+          }}}
       />
     </div>
   );

@@ -7,13 +7,14 @@ import {
   doc,
   collection,
   onSnapshot,
+  
 } from "firebase/firestore";
 import { db } from "../../firebase";
 import { PopupMessage } from "./PopupMessage";
 
 const AddDatatable = () => {
   const [data, setData] = useState([]);
-  const [open, setOpen] = useState(false);
+  
 
   useEffect(() => {
     // LISTEN (REALTIME)
@@ -78,6 +79,11 @@ const AddDatatable = () => {
         columns={smsColumns.concat(actionColumn)}
         pageSize={100}
         rowsPerPageOptions={[5]}
+        sortingOrder = {['asc', 'desc', null]}
+        initialState={{
+          sorting: {
+            sortModel: [{ field: 'createdAt', sort: 'desc' }],
+          }}}
       />
     </div>
   );

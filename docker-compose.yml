@@ -1,19 +1,13 @@
 version: "3.7"
 
 services:
-  react-proj:
+  prod:
     # service 1 container name
-    container_name: react-proj
+    container_name: lanaline-prod
+    image: docker-react-i
     build:
-     
       context: .
-      dockerfile: Dockerfile
-    
     ports:
-      - "90:3000"
-   
-    volumes:
-      - "/app"
-      - "/app/node_modules"
-    environment:
-      - NODE_ENV=development
+      - "92:80"
+    
+      

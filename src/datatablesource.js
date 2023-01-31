@@ -1,57 +1,64 @@
 export const smsMessageColumns = [
-  { field: "id", headerName: "ID", width: 200 },
-  { field: "number", headerName: "Phone Number", width: 150 },
-  { field: "smsTitle", headerName: "SMS Title", width: 200 },
-  { field: "sms", headerName: "SMS Message", width: 600 },
-  { field: "sender", headerName: "SMS Header", width: 150 },
-  { field: "email", headerName: "Sender Email", width: 150 },
   {
     field: "createdAt",
     headerName: "Created At",
-    width: 140,
+    width: 180,
     renderCell: (params) => {
       return (
-          <div>{`${params.row.createdAt?params.row.createdAt.toDate().toDateString(): ''}`}</div>
+          <div>{`${params.row.createdAt?convertDate(params.row.createdAt.seconds): ''}`}</div>
       );
-    },
+    }
   },
+  { field: "number", headerName: "Phone Number", width: 150 },
+  { field: "smsTitle", headerName: "SMS Title", width: 100 },
+  { field: "sms", headerName: "SMS Message", width: 600 },
+  { field: "sender", headerName: "SMS Header", width: 150 },
+  { field: "email", headerName: "Sender Email", width: 150 },
+  
 ];
-
+function convertDate(time) {
+  //time should be server timestamp seconds only
+  let dateInMillis = time *1000
+  let date = new Date(dateInMillis)
+  let myDate = date.toLocaleDateString()
+  let myTime = date.toLocaleTimeString()
+  myDate = myDate.replaceAll('/', '-')
+  return myDate + " " + myTime
+  }
 export const smsColumns = [
-  { field: "id", headerName: "ID", width: 200 },
-  { field: "title", headerName: "SMS Title", width: 100 },
-  { field: "sms", headerName: "SMS Message", width: 800 },
-  { field: "email", headerName: "Added User", width: 250 },
   {
     field: "createdAt",
     headerName: "Created At",
     width: 200,
     renderCell: (params) => {
       return (
-          <div>{`${params.row.createdAt? params.row.createdAt?.toDate().toDateString() : ''}`}</div>
+          <div>{`${params.row.createdAt? convertDate(params.row.createdAt.seconds) : ''}`}</div>
       );
-    },
+    }
     
   },
+  { field: "title", headerName: "SMS Title", width: 100 },
+  { field: "sms", headerName: "SMS Message", width: 400 },
+  { field: "email", headerName: "Added User", width: 250 },
+  
 
 ];
 export const usersColumns = [
-  { field: "id", headerName: "ID", width: 250 },
+  {
+    field: "createdAt",
+    headerName: "Created At",
+    width: 180,
+    renderCell: (params) => {
+      return (
+          <div>{`${params.row.createdAt?convertDate(params.row.createdAt.seconds): ''}`}</div>
+      );
+    }
+  },
   { field: "username", headerName: "Username", width: 150 },
   { field: "email", headerName: "Email", width: 200 },
   { field: "role", headerName: "Role", width: 100,  renderCell: (params) => {
     return (
         <div>{`${params.row.role===0?'Root':params.row.role===1?'Admin':'User'}`}</div>
     );
-  }, },
-  {
-    field: "createdAt",
-    headerName: "Created At",
-    width: 140,
-    renderCell: (params) => {
-      return (
-          <div>{`${params.row.createdAt?params.row.createdAt.toDate().toDateString(): ''}`}</div>
-      );
-    },
-  },
+  }, }
 ];

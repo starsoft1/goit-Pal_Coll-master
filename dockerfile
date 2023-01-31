@@ -10,6 +10,6 @@ FROM nginx:alpine
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 COPY --from=prod /app/build .
-EXPOSE 92
+EXPOSE 90
 # run nginx with global directives and daemon off
 ENTRYPOINT ["nginx", "-g", "daemon off;"]

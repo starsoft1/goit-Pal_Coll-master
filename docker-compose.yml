@@ -3,7 +3,7 @@ version: "3.7"
 services:
   prod:
     # service 1 container name
-    container_name: lanaline-prod
+    container_name: palcoll-prod
     image: docker-react-i
     build:
       context: .

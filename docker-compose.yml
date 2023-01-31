@@ -8,6 +8,6 @@ services:
     build:
       context: .
     ports:
-      - "92:80"
+      - "90:80"
     
       
